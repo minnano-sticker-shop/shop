@@ -2,109 +2,182 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>車好きのためのステッカー専門店</title>
-  <meta name="description" content="車好きのためのオリジナルカッティングステッカー専門店。オーダーメイドも対応。メルカリショップスで販売中！">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>みんステ｜車好きのためのステッカー専門店</title>
+  <meta name="description" content="オリジナルカッティングステッカー専門店。メルカリショップスで販売中。オーダーメイドも対応！">
   <style>
     body {
-      font-family: 'Arial', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f9f9f9;
       color: #333;
     }
+
     header {
       background-color: #222;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    nav a {
-      margin: 0 10px;
+
+    header img {
+      height: 50px;
+    }
+
+    header nav a {
       color: #fff;
+      margin-left: 20px;
       text-decoration: none;
+      font-weight: bold;
     }
+
     .hero {
+      position: relative;
+      width: 100%;
+      height: 300px;
       background-image: url('banner.jpg');
       background-size: cover;
       background-position: center;
-      height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      position: absolute;
       color: white;
-      text-shadow: 1px 1px 3px #000;
       font-size: 2em;
+      font-weight: bold;
+      animation: slideFade 3s ease-in-out forwards;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
+
+    @keyframes slideFade {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     section {
-      padding: 20px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-    .products img {
-      width: 100%;
-      max-width: 300px;
-      margin: 10px;
-      border-radius: 8px;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8em;
     }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 250px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.8s ease;
+    }
+
+    .gallery img.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
     footer {
       background-color: #222;
       color: #fff;
       text-align: center;
-      padding: 10px;
+      padding: 20px;
+      font-size: 0.9em;
     }
-    .btn {
-      display: inline-block;
-      background-color: #e91e63;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 10px;
+
+    @media (max-width: 600px) {
+      .gallery img {
+        width: 90%;
+      }
+      .hero-text {
+        font-size: 1.5em;
+        text-align: center;
+        padding: 0 10px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>車好きのためのステッカー専門店</h1>
+    <img src="logo.png" alt="みんステロゴ">
     <nav>
       <a href="#about">当店について</a>
-      <a href="#products">商品紹介</a>
-      <a href="#order">オーダーメイド</a>
+      <a href="#stickers">ステッカー</a>
+      <a href="#order">オーダー</a>
       <a href="#contact">お問い合わせ</a>
     </nav>
   </header>
 
   <div class="hero">
-    あなたの愛車に、個性を。
+    <div class="hero-text">あなたの愛車に、個性を。</div>
   </div>
 
   <section id="about">
     <h2>当店について</h2>
-    <p>メルカリショップスで運営するカッティングステッカー専門店です。車好きの方に向けたオリジナルデザインを多数取り揃えています。</p>
+    <p style="text-align:center;">「みんステ」は車好きのためのカッティングステッカー専門店です。メルカリショップスで販売中。オーダーメイドも承ります。</p>
   </section>
 
-  <section id="products" class="products">
-    <h2>商品紹介</h2>
-    <p>人気のステッカーを一部ご紹介：</p>
-    <img src="sticker1.jpg" alt="ステッカー1">
-    <img src="sticker2.jpg" alt="ステッカー2">
-    <a class="btn" href="https://mercari-shops.com/yourshoplink" target="_blank">メルカリショップを見る</a>
+  <section id="stickers">
+    <h2>ステッカーギャラリー</h2>
+    <div class="gallery">
+      <img src="sticker1.png" alt="ステッカー1">
+      <img src="sticker2.png" alt="ステッカー2">
+      <img src="sticker3.png" alt="ステッカー3">
+      <img src="sticker4.png" alt="ステッカー4">
+      <img src="sticker5.png" alt="ステッカー5">
+      <img src="sticker6.png" alt="ステッカー6">
+      <img src="sticker7.png" alt="ステッカー7">
+      <img src="sticker8.png" alt="ステッカー8">
+      <img src="sticker9.png" alt="ステッカー9">
+      <img src="sticker10.png" alt="ステッカー10">
+    </div>
   </section>
 
   <section id="order">
     <h2>オーダーメイドについて</h2>
-    <p>お好きな文字やデザインで、世界に一つだけのステッカーを作成します。お気軽にご相談ください。</p>
-    <a class="btn" href="https://www.instagram.com/youraccount" target="_blank">Instagramで相談する</a>
+    <p style="text-align:center;">お好きな文字・デザインでオリジナルステッカーを制作します。InstagramのDMまたはメルカリショップからお気軽にご相談ください。</p>
+    <p style="text-align:center;"><a href="https://www.instagram.com/youraccount" target="_blank">Instagramで相談する</a></p>
   </section>
 
   <section id="contact">
     <h2>お問い合わせ</h2>
-    <p>ご質問・ご相談はInstagramのDMまたはメルカリショップのコメント欄からどうぞ。</p>
+    <p style="text-align:center;">ご質問はInstagramのDMまたはメルカリショップのコメント欄からどうぞ。</p>
+    <p style="text-align:center;"><a href="https://mercari-shops.com/yourshoplink" target="_blank">メルカリショップを見る</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 車好きのためのステッカー専門店</p>
+    &copy; 2025 みんステ｜車好きのためのステッカー専門店
   </footer>
 
+  <script>
+    // スクロール時に画像をフェードイン
+    const images = document.querySelectorAll('.gallery img');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    images.forEach(img => observer.observe(img));
+  </script>
+
 </body>
+</html>
