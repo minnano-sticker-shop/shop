@@ -28,14 +28,10 @@
 
     header nav a {
       color: #f5f3ef;
-      margin-left: 20px;
+      margin-left: 15px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    header nav a:hover {
-      color: #d2b48c;
+      font-size: 0.95em;
     }
 
     .hero {
@@ -45,24 +41,50 @@
       background-image: url('banner.jpg');
       background-size: cover;
       background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
     }
 
     .hero-text {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: #f5f3ef;
       font-size: 2em;
       font-weight: bold;
-      animation: slideFade 3s ease-in-out forwards;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+      animation: fadeIn 2s ease-in-out;
+      text-align: center;
+      padding: 0 10px;
     }
 
-    @keyframes slideFade {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translate(-50%, -60%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    .floating-sticker {
+      position: absolute;
+      top: 20px;
+      width: 80px;
+      animation: floatSticker 12s linear infinite;
+    }
+
+    .floating-sticker:nth-child(1) {
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .floating-sticker:nth-child(2) {
+      left: -150px;
+      animation-delay: 4s;
+    }
+
+    @keyframes floatSticker {
+      0% { transform: translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateX(120vw); opacity: 0; }
     }
 
     section {
@@ -80,7 +102,7 @@
 
     .category-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 20px;
     }
 
@@ -89,7 +111,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      padding: 20px;
+      padding: 15px;
       transition: transform 0.3s;
     }
 
@@ -102,11 +124,12 @@
       color: #4b4b4b;
       font-weight: bold;
       display: block;
+      font-size: 0.95em;
     }
 
     .category-card img {
       width: 100%;
-      max-height: 150px;
+      max-height: 100px;
       object-fit: contain;
       margin-bottom: 10px;
     }
@@ -120,10 +143,15 @@
     }
 
     @media (max-width: 600px) {
+      .hero {
+        height: 220px;
+      }
       .hero-text {
-        font-size: 1.5em;
-        text-align: center;
-        padding: 0 10px;
+        font-size: 1.4em;
+      }
+      header nav a {
+        font-size: 0.85em;
+        margin-left: 10px;
       }
     }
   </style>
@@ -142,6 +170,8 @@
 
   <div class="hero">
     <div class="hero-text">あなたの愛車に、個性を。</div>
+    <img src="sticker-float1.png" class="floating-sticker" alt="ステッカー1">
+    <img src="sticker-float2.png" class="floating-sticker" alt="ステッカー2">
   </div>
 
   <section id="about">
@@ -152,100 +182,45 @@
   <section id="gallery">
     <h2>ステッカーカテゴリ一覧</h2>
     <div class="category-grid">
-
-      <div class="category-card">
-        <a href="gallery-toyota.html">
-          <img src="toyota-thumb.png" alt="トヨタ系">
-          トヨタ系
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-honda.html">
-          <img src="honda-thumb.png" alt="ホンダ系">
-          ホンダ系
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-nissan.html">
-          <img src="nissan-thumb.png" alt="日産系">
-          日産系
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-mazda.html">
-          <img src="mazda-thumb.png" alt="マツダ系">
-          マツダ系
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-subaru.html">
-          <img src="subaru-thumb.png" alt="スバル系">
-          スバル系
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-mitsubishi.html">
-          <img src="mitsubishi-thumb.png" alt="三菱系">
-          三菱系
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-suzuki.html">
-          <img src="suzuki-thumb.png" alt="スズキ系">
-          スズキ系
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-daihatsu.html">
-          <img src="daihatsu-thumb.png" alt="ダイハツ系">
-          ダイハツ系
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-jdm.html">
-          <img src="jdm-thumb.png" alt="JDMスタイル">
-          JDMスタイル
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-euro.html">
-          <img src="euro-thumb.png" alt="欧州車">
-          欧州車
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-outdoor.html">
-          <img src="outdoor-thumb.png" alt="キャンプ・アウトドア">
-          キャンプ・アウトドア
-        </a>
-      </div>
-
-      <div class="category-card">
-        <a href="gallery-custom.html">
-          <img src="custom-thumb.png" alt="カスタム文字">
-          カスタム文字
-        </a>
-      </div>
-
+      <div class="category-card"><a href="gallery-toyota.html"><img src="toyota-thumb.png" alt="トヨタ">トヨタ系</a></div>
+      <div class="category-card"><a href="gallery-honda.html"><img src="honda-thumb.png" alt="ホンダ">ホンダ系</a></div>
+      <div class="category-card"><a href="gallery-nissan.html"><img src="nissan-thumb.png" alt="日産">日産系</a></div>
+      <div class="category-card"><a href="gallery-mazda.html"><img src="mazda-thumb.png" alt="マツダ">マツダ系</a></div>
+      <div class="category-card"><a href="gallery-subaru.html"><img src="subaru-thumb.png" alt="スバル">スバル系</a></div>
+      <div class="category-card"><a href="gallery-mitsubishi.html"><img src="mitsubishi-thumb.png" alt="三菱">三菱系</a></div>
+      <div class="category-card"><a href="gallery-suzuki.html"><img src="suzuki-thumb.png" alt="スズキ">スズキ系</a></div>
+      <div class="category-card"><a href="gallery-daihatsu.html"><img src="daihatsu-thumb.png" alt="ダイハツ">ダイハツ系</a></div>
+      <div class="category-card"><a href="gallery-jdm.html"><img src="jdm-thumb.png" alt="JDM">JDMスタイル</a></div>
+      <div class="category-card"><a href="gallery-euro.html"><img src="euro-thumb.png" alt="欧州車">欧州車</a></div>
+      <div class="category-card"><a href="gallery-outdoor.html"><img src="outdoor-thumb.png" alt="アウトドア">キャンプ・アウトドア</a></div>
+      <div class="category-card"><a href="gallery-custom.html"><img src="custom-thumb.png" alt="カスタム">カスタム文字</a></div>
     </div>
   </section>
 
   <section id="order">
     <h2>オーダーメイドについて</h2>
-    <p style="text-align:center;">お好きな文字・デザインでオリジナルステッカーを制作します。InstagramのDMまたはメルカリショップからお気軽にご相談ください。</p>
-    <p style="text-align:center;"><a href="https://www.instagram.com/youraccount" target="_blank">Instagramで相談する</a></p>
+    <p style="text-align:center;">
+      お好きな文字・デザインでオリジナルステッカーを制作します。<br>
+      InstagramのDMまたはメルカリショップからお気軽にご相談ください。
+    </p>
+    <p style="text-align:center; margin-top: 20px;">
+      <a href="https://www.instagram.com/youraccount" target="_blank" style="color:#6b8e23; font-weight:bold;">Instagramで相談する</a>
+    </p>
   </section>
 
   <section id="contact">
     <h2>お問い合わせ</h2>
-    <p style="text-align:center;">ご質問はInstagramのDMまたはメルカリショップのコメント欄からどうぞ
+    <p style="text-align:center;">
+      ご質問はInstagramのDMまたはメルカリショップのコメント欄からどうぞ。
+    </p>
+    <p style="text-align:center; margin-top: 20px;">
+      <a href="https://mercari-shops.com/yourshoplink" target="_blank" style="color:#6b8e23; font-weight:bold;">メルカリショップを見る</a>
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 みんステ｜車好きのためのステッカー専門店
+  </footer>
+
+</body>
+</html>
