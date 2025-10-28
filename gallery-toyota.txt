@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>トヨタ系ステッカー｜みんステ</title>
+  <meta name="description" content="トヨタ車向けのオリジナルステッカー一覧。カスタムやオーダーメイドも対応。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #f5f3ef;
+      color: #4b4b4b;
+    }
+
+    header {
+      background-color: #3e3e3e;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #f5f3ef;
+      font-size: 1.5em;
+      margin: 0;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.6em;
+      color: #6b8e23;
+    }
+
+    p.description {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1em;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 250px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.8s ease;
+    }
+
+    .gallery img.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      color: #6b8e23;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link a:hover {
+      color: #a67c52;
+    }
+
+    footer {
+      background-color: #3e3e3e;
+      color: #f5f3ef;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      .gallery img {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>トヨタ系ステッカー</h1>
+  </header>
+
+  <section>
+    <h2>ステッカー一覧</h2>
+    <p class="description">トヨタ車にぴったりなオリジナルステッカーを集めました。スポーツ系からシンプルなロゴまで幅広く展開しています。</p>
+
+    <div class="gallery">
+      <img src="toyota1.png" alt="トヨタステッカー1">
+      <img src="toyota2.png" alt="トヨタステッカー2">
+      <img src="toyota3.png" alt="トヨタステッカー3">
+      <img src="toyota4.png" alt="トヨタステッカー4">
+    </div>
+
+    <div class="back-link">
+      <a href="index.html">← トップページに戻る</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 みんステ｜車好きのためのステッカー専門店
+  </footer>
+
+  <script>
+    const images = document.querySelectorAll('.gallery img');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    images.forEach(img => observer.observe(img));
+  </script>
+
+</body>
+</html>
