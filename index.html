@@ -6,34 +6,44 @@
   <title>みんステ｜車好きのためのステッカー専門店</title>
   <meta name="description" content="オリジナルカッティングステッカー専門店。メルカリショップスで販売中。オーダーメイドも対応！">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
-    body {
-      margin: 0;
-      font-family: 'Noto Sans JP', sans-serif;
-      background-color: #f5f3ef;
-      color: #4b4b4b;
-    }
+  /* =========================
+  ベース設定
+========================= */
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #f5f3ef;
+  color: #4b4b4b;
+}
 
-    header {
-      background-color: #3e3e3e;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+/* =========================
+  ヘッダー
+========================= */
+header {
+  background-color: #3e3e3e;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    header img {
-      height: 50px;
-    }
+header img {
+  height: 50px;
+}
 
-    header nav a {
-      color: #f5f3ef;
-      margin-left: 15px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95em;
-    }
+header nav a {
+  color: #f5f3ef;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95em;
+}
 
+/* =========================
+  HEROセクション
+========================= */
 .hero {
   position: relative;
   width: 100%;
@@ -49,34 +59,30 @@
 
 .hero-text {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-  color: #fff;
-  font-size: 1.8em;           /* 少し小さめに調整 */
-  padding: 5px 10px;          /* 余白を調整 */
+  color: #f5f3ef;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 5px 10px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   text-align: center;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   white-space: nowrap;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  animation: fadeIn 2s ease-in-out;
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
 }
 
-
-@media (max-width: 600px) {
-  .hero {
-    height: 220px;
-  }
-  .hero-text {
-    font-size: 1.4em;
-  }
-}
-
+/* =========================
+  Swiperスライダー
+========================= */
 .swiper {
   width: 100%;
   max-width: 1000px;
@@ -91,116 +97,88 @@
   border-radius: 12px;
 }
 
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #f5f3ef;
-      font-size: 2em;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-      animation: fadeIn 2s ease-in-out;
-      text-align: center;
-      padding: 0 10px;
-    }
+/* =========================
+  セクション共通
+========================= */
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translate(-50%, -60%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
-    }
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  color: #6b8e23;
+}
 
-    .floating-sticker {
-      position: absolute;
-      top: 20px;
-      width: 80px;
-      animation: floatSticker 12s linear infinite;
-    }
+/* =========================
+  カテゴリーカード
+========================= */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
 
-    .floating-sticker:nth-child(1) {
-      left: -100px;
-      animation-delay: 0s;
-    }
+.category-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s;
+}
 
-    .floating-sticker:nth-child(2) {
-      left: -150px;
-      animation-delay: 4s;
-    }
+.category-card:hover {
+  transform: translateY(-5px);
+}
 
-    @keyframes floatSticker {
-      0% { transform: translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateX(120vw); opacity: 0; }
-    }
+.category-card a {
+  text-decoration: none;
+  color: #4b4b4b;
+  font-weight: bold;
+  display: block;
+  font-size: 0.95em;
+}
 
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+.category-card img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.8em;
-      color: #6b8e23;
-    }
+/* =========================
+  フッター
+========================= */
+footer {
+  background-color: #3e3e3e;
+  color: #f5f3ef;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
 
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-    }
+/* =========================
+  レスポンシブ対応
+========================= */
+@media (max-width: 600px) {
+  .hero {
+    height: 220px;
+  }
 
-    .category-card {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 15px;
-      transition: transform 0.3s;
-    }
+  .hero-text {
+    font-size: 1.4em;
+  }
 
-    .category-card:hover {
-      transform: translateY(-5px);
-    }
+  header nav a {
+    font-size: 0.85em;
+    margin-left: 10px;
+  }
+}
 
-    .category-card a {
-      text-decoration: none;
-      color: #4b4b4b;
-      font-weight: bold;
-      display: block;
-      font-size: 0.95em;
-    }
-
-    .category-card img {
-      width: 100%;
-      max-height: 100px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background-color: #3e3e3e;
-      color: #f5f3ef;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-
-    @media (max-width: 600px) {
-      .hero {
-        height: 220px;
-      }
-      .hero-text {
-        font-size: 1.4em;
-      }
-      header nav a {
-        font-size: 0.85em;
-        margin-left: 10px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -356,6 +334,7 @@
 
 </body>
 </html>
+
 
 
 
