@@ -153,37 +153,40 @@ h2 {
 ========================= */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 20px;
+  margin-top: 30px;
 }
 
 .category-card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
   text-align: center;
   padding: 15px;
+  font-weight: bold;
+  font-size: 1em;
   transition: transform 0.3s;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
 }
 
 .category-card a {
   text-decoration: none;
-  color: #4b4b4b;
-  font-weight: bold;
+  color: #fff;
   display: block;
-  font-size: 0.95em;
 }
 
-.category-card img {
-  width: 100%;
-  max-height: 100px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
+/* ブランドカラー背景 */
+.toyota       { background-color: #eb0a1e; }     /* 赤 */
+.honda        { background-color: #da251d; }     /* 赤 */
+.nissan       { background-color: #1e1e1e; }     /* 黒 */
+.mazda        { background-color: #1d1d1d; }     /* 黒 */
+.subaru       { background-color: #0033a0; }     /* 青 */
+.mitsubishi   { background-color: #e60012; }     /* 赤 */
+.suzuki       { background-color: #e10000; }     /* 赤 */
+.daihatsu     { background-color: #c8102e; }     /* 赤 */
+.jdm          { background-color: #fdd835; color: #000; } /* 黄＋黒文字 */
+.euro         { background-color: #005baa; }     /* 青系 */
+.outdoor      { background-color: #4caf50; }     /* 緑系 */
+.custom       { background-color: #6b8e23; }     /* オリーブ系 */
+
 
 /* =========================
   フッター
@@ -322,23 +325,23 @@ footer {
   </section>
 
   <!-- ステッカーカテゴリ一覧 -->
-  <section id="gallery">
-    <h2>ステッカーカテゴリ一覧</h2>
-    <div class="category-grid">
-      <div class="category-card"><a href="gallery-toyota.html"><img src="toyota-thumb.png" alt="トヨタ">トヨタ系</a></div>
-      <div class="category-card"><a href="gallery-honda.html"><img src="honda-thumb.png" alt="ホンダ">ホンダ系</a></div>
-      <div class="category-card"><a href="gallery-nissan.html"><img src="nissan-thumb.png" alt="日産">日産系</a></div>
-      <div class="category-card"><a href="gallery-mazda.html"><img src="mazda-thumb.png" alt="マツダ">マツダ系</a></div>
-      <div class="category-card"><a href="gallery-subaru.html"><img src="subaru-thumb.png" alt="スバル">スバル系</a></div>
-      <div class="category-card"><a href="gallery-mitsubishi.html"><img src="mitsubishi-thumb.png" alt="三菱">三菱系</a></div>
-      <div class="category-card"><a href="gallery-suzuki.html"><img src="suzuki-thumb.png" alt="スズキ">スズキ系</a></div>
-      <div class="category-card"><a href="gallery-daihatsu.html"><img src="daihatsu-thumb.png" alt="ダイハツ">ダイハツ系</a></div>
-      <div class="category-card"><a href="gallery-jdm.html"><img src="jdm-thumb.png" alt="JDM">JDMスタイル</a></div>
-      <div class="category-card"><a href="gallery-euro.html"><img src="euro-thumb.png" alt="欧州車">欧州車</a></div>
-      <div class="category-card"><a href="gallery-outdoor.html"><img src="outdoor-thumb.png" alt="アウトドア">キャンプ・アウトドア</a></div>
-      <div class="category-card"><a href="gallery-custom.html"><img src="custom-thumb.png" alt="カスタム">カスタム文字</a></div>
-    </div>
-  </section>
+<section id="gallery">
+  <h2>ステッカーカテゴリ一覧</h2>
+  <div class="category-grid">
+    <div class="category-card toyota"><a href="gallery-toyota.html">トヨタ系</a></div>
+    <div class="category-card honda"><a href="gallery-honda.html">ホンダ系</a></div>
+    <div class="category-card nissan"><a href="gallery-nissan.html">日産系</a></div>
+    <div class="category-card mazda"><a href="gallery-mazda.html">マツダ系</a></div>
+    <div class="category-card subaru"><a href="gallery-subaru.html">スバル系</a></div>
+    <div class="category-card mitsubishi"><a href="gallery-mitsubishi.html">三菱系</a></div>
+    <div class="category-card suzuki"><a href="gallery-suzuki.html">スズキ系</a></div>
+    <div class="category-card daihatsu"><a href="gallery-daihatsu.html">ダイハツ系</a></div>
+    <div class="category-card jdm"><a href="gallery-jdm.html">JDMスタイル</a></div>
+    <div class="category-card euro"><a href="gallery-euro.html">欧州車</a></div>
+    <div class="category-card outdoor"><a href="gallery-outdoor.html">キャンプ・アウトドア</a></div>
+    <div class="category-card custom"><a href="gallery-custom.html">カスタム文字</a></div>
+  </div>
+</section>
 
   <!-- オーダーメイド -->
   <section id="order">
@@ -433,6 +436,7 @@ footer {
 </body>
 
 </html>
+
 
 
 
