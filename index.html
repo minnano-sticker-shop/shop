@@ -49,14 +49,17 @@
 
 .hero-text {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒背景 */
+  z-index: 2;
   color: #fff;
-  font-size: 2em;
-  font-weight: bold;
-  padding: 10px 20px;
+  font-size: 1.8em;           /* 少し小さめに調整 */
+  padding: 5px 10px;          /* 余白を調整 */
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   text-align: center;
-  text-shadow: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 @keyframes fadeIn {
@@ -356,6 +359,7 @@
 
 </body>
 </html>
+
 
 
 
