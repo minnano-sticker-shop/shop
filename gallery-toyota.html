@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>トヨタ系ステッカー｜みんステ</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="トヨタ車向けのオリジナルステッカー一覧。ハイラックス・プリウス・GRヤリスなど対応。メルカリショップスで販売中。">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <!-- 共通スタイル -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- ヘッダー -->
   <header>
-    <img src="images/minste-logo-circle.png" alt="みんステロゴ" />
-    <button class="menu-toggle">☰</button>
+    <img src="images/minste-logo-circle.png" alt="みんステロゴ" class="logo">
+    <button class="menu-toggle" aria-label="メニューを開く">☰</button>
     <nav class="nav-menu">
       <a href="index.html#about">当店について</a>
       <a href="index.html#gallery">ステッカー</a>
@@ -29,26 +37,26 @@
   <!-- コンテンツ -->
   <section>
     <h2>トヨタ車にぴったりなステッカーを揃えました</h2>
-    <p style="text-align: center; margin-bottom: 30px;">
-      ハイラックス、プリウス、GRヤリス、ランドクルーザーなど、<br />
-      トヨタ車の魅力を引き立てるステッカーを多数ご用意。<br />
+    <p style="text-align:center; margin-bottom:30px;">
+      ハイラックス、プリウス、GRヤリス、ランドクルーザーなど、<br>
+      トヨタ車の魅力を引き立てるステッカーを多数ご用意。<br>
       カスタム派からファミリーユーザーまで、幅広く対応しています。
     </p>
 
     <div class="category-grid">
-      <div class="category-card">
+      <div class="category-card toyota">
         <a href="https://mercari.com/jp/items/XXXXXXXX01" target="_blank">GRスポーツ風ステッカー</a>
       </div>
-      <div class="category-card">
+      <div class="category-card toyota">
         <a href="https://mercari.com/jp/items/XXXXXXXX02" target="_blank">ハイラックス専用デザイン</a>
       </div>
-      <div class="category-card">
+      <div class="category-card toyota">
         <a href="https://mercari.com/jp/items/XXXXXXXX03" target="_blank">プリウス乗ってます系</a>
       </div>
-      <div class="category-card">
+      <div class="category-card toyota">
         <a href="https://mercari.com/jp/items/XXXXXXXX04" target="_blank">ランドクルーザー×アウトドア</a>
       </div>
-      <div class="category-card">
+      <div class="category-card toyota">
         <a href="https://mercari.com/jp/items/XXXXXXXX05" target="_blank">トヨタ汎用カスタム文字</a>
       </div>
     </div>
@@ -59,16 +67,14 @@
     &copy; 2025 みんステ｜ステッカー専門店 All rights reserved.
   </footer>
 
-  <!-- スクリプト -->
+  <!-- メニュー開閉スクリプト -->
   <script>
     const toggleButton = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-
     toggleButton.addEventListener('click', (e) => {
       e.stopPropagation();
       navMenu.classList.toggle('active');
     });
-
     document.addEventListener('click', (e) => {
       if (navMenu.classList.contains('active')) {
         const isClickInside = navMenu.contains(e.target) || toggleButton.contains(e.target);
