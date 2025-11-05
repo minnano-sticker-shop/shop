@@ -111,7 +111,19 @@
   }
 }
 
+.swiper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
 
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
 
     .hero-text {
       position: absolute;
@@ -243,10 +255,10 @@
 </div>
 
 <!-- スライダーセクション -->
-<section id="sticker-slider">
+  <section id="sticker-slider">
   <h2 style="text-align:center; color:#6b8e23;">ステッカーサンプルスライド</h2>
-  <div class="slider-container">
-    <div class="slider-track">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
       <img src="images/lc70black.jpg" alt="ステッカー1">
       <img src="images/lc150white.jpg" alt="ステッカー2">
       <img src="images/newd5custamkidsincarblack.jpg" alt="ステッカー3">
@@ -260,7 +272,6 @@
     </div>
   </div>
 </section>
-
 
   <section id="request-board">
   <h2>ステッカーアイデア募集掲示板</h2>
@@ -357,8 +368,29 @@
     &copy; 2025 みんステ｜車好きのためのステッカー専門店
   </footer>
 
+  <!-- Swiper CDN読み込み（head内またはbody末尾） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 3,
+    spaceBetween: 20,
+    breakpoints: {
+      600: { slidesPerView: 2 },
+      400: { slidesPerView: 1 }
+    }
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
