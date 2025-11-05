@@ -1,192 +1,210 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>みんステ｜車好きのためのステッカー専門店</title>
   <meta name="description" content="オリジナルカッティングステッカー専門店。メルカリショップスで販売中。オーダーメイドも対応！">
+
+  <!-- フォント読み込み -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  
+
+  <!-- Swiper CSS（正しい位置） -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
   <style>
+    /* =========================
+      ベース設定
+    ========================= */
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #f5f3ef;
+      color: #4b4b4b;
+    }
 
-<!-- Swiper CSS（head内） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    
-  /* =========================
-  ベース設定
-========================= */
-body {
-  margin: 0;
-  font-family: 'Noto Sans JP', sans-serif;
-  background-color: #f5f3ef;
-  color: #4b4b4b;
-}
+    /* =========================
+      ヘッダー
+    ========================= */
+    header {
+      background-color: #3e3e3e;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-/* =========================
-  ヘッダー
-========================= */
-header {
-  background-color: #3e3e3e;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    header img {
+      height: 50px;
+    }
 
-header img {
-  height: 50px;
-}
+    header nav a {
+      color: #f5f3ef;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95em;
+    }
 
-header nav a {
-  color: #f5f3ef;
-  margin-left: 15px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.95em;
-}
+    /* =========================
+      HEROセクション
+    ========================= */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background-image: url('images/ad8.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-/* =========================
-  HEROセクション
-========================= */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  background-image: url('images/ad8.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      color: #f5f3ef;
+      font-size: 1.8em;
+      font-weight: bold;
+      padding: 5px 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      text-align: center;
+      white-space: nowrap;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+      animation: fadeIn 2s ease-in-out;
+    }
 
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  color: #f5f3ef;
-  font-size: 1.8em;
-  font-weight: bold;
-  padding: 5px 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  text-align: center;
-  white-space: nowrap;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-  animation: fadeIn 2s ease-in-out;
-}
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translate(-50%, -60%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
+    }
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translate(-50%, -60%); }
-  100% { opacity: 1; transform: translate(-50%, -50%); }
-}
+    /* =========================
+      Swiperスライダー
+    ========================= */
+    .swiper {
+      width: 100%;
+      max-width: 1000px;
+      margin: 30px auto;
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-/* =========================
-  Swiperスライダー
-========================= */
-.swiper {
-  width: 100%;
-  max-width: 1000px;
-  margin: 30px auto;
-  border-radius: 12px;
-  overflow: hidden;
-}
+    .swiper-wrapper {
+      display: flex;
+    }
 
-.swiper-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
+    .swiper-slide {
+      flex-shrink: 0;
+      width: auto;
+    }
 
-/* =========================
-  セクション共通
-========================= */
-section {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 12px;
+    }
 
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 1.8em;
-  color: #6b8e23;
-}
+    /* =========================
+      セクション共通
+    ========================= */
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-/* =========================
-  カテゴリーカード
-========================= */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-}
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8em;
+      color: #6b8e23;
+    }
 
-.category-card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 15px;
-  transition: transform 0.3s;
-}
+    /* =========================
+      カテゴリーカード
+    ========================= */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
 
-.category-card:hover {
-  transform: translateY(-5px);
-}
+    .category-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
 
-.category-card a {
-  text-decoration: none;
-  color: #4b4b4b;
-  font-weight: bold;
-  display: block;
-  font-size: 0.95em;
-}
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
 
-.category-card img {
-  width: 100%;
-  max-height: 100px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
+    .category-card a {
+      text-decoration: none;
+      color: #4b4b4b;
+      font-weight: bold;
+      display: block;
+      font-size: 0.95em;
+    }
 
-/* =========================
-  フッター
-========================= */
-footer {
-  background-color: #3e3e3e;
-  color: #f5f3ef;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-}
+    .category-card img {
+      width: 100%;
+      max-height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
 
-/* =========================
-  レスポンシブ対応
-========================= */
-@media (max-width: 600px) {
-  .hero {
-    height: 220px;
-  }
+    /* =========================
+      フッター
+    ========================= */
+    footer {
+      background-color: #3e3e3e;
+      color: #f5f3ef;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
 
-  .hero-text {
-    font-size: 1.4em;
-  }
+    /* =========================
+      レスポンシブ対応
+    ========================= */
+    @media (max-width: 600px) {
+      .hero {
+        height: 220px;
+      }
 
-  header nav a {
-    font-size: 0.85em;
-    margin-left: 10px;
-  }
-}
+      .hero-text {
+        font-size: 1.4em;
+      }
 
+      header nav a {
+        font-size: 0.85em;
+        margin-left: 10px;
+      }
+
+      .swiper-slide img {
+        aspect-ratio: 3 / 4;
+      }
+    }
   </style>
 </head>
-<body>
 
+  <body>
+
+  <!-- ヘッダー -->
   <header>
     <img src="images/minste-logo-circle.png" alt="みんステロゴ">
     <nav>
@@ -197,60 +215,64 @@ footer {
     </nav>
   </header>
 
- <!-- HEROセクション（背景＋キャッチコピー） -->
-<div class="hero">
-  <div class="hero-text">あなたの愛車に、個性を。</div>
-</div>
+  <!-- HEROセクション -->
+  <div class="hero">
+    <div class="hero-text">あなたの愛車に、個性を。</div>
+  </div>
 
-<!-- スライダーセクション -->
-<section id="sticker-slider">
-  <h2 style="text-align:center; color:#6b8e23;">ステッカーサンプルスライド</h2>
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="images/lc70black.jpg" alt="ステッカー1"></div>
-      <div class="swiper-slide"><img src="images/lc150white.jpg" alt="ステッカー2"></div>
-      <div class="swiper-slide"><img src="images/newd5custamkidsincarblack.jpg" alt="ステッカー3"></div>
-      <div class="swiper-slide"><img src="images/jb74customrockwhite2.jpg" alt="ステッカー4"></div>
-      <div class="swiper-slide"><img src="images/jb74customkidsincarblack.jpg" alt="ステッカー5"></div>
-      <div class="swiper-slide"><img src="images/jb23black.jpg" alt="ステッカー6"></div>
-      <div class="swiper-slide"><img src="images/d5customwhite2.jpg" alt="ステッカー7"></div>
-      <div class="swiper-slide"><img src="images/jimnyjb64gold.jpg" alt="ステッカー8"></div>
-      <div class="swiper-slide"><img src="images/jimnyjb74silver.jpg" alt="ステッカー9"></div>
-      <div class="swiper-slide"><img src="images/lclogoblack5.jpg" alt="ステッカー10"></div>
+  <!-- Swiperスライダー -->
+  <section id="sticker-slider">
+    <h2>ステッカーサンプルスライド</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/lc70black.jpg" alt="ステッカー1"></div>
+        <div class="swiper-slide"><img src="images/lc150white.jpg" alt="ステッカー2"></div>
+        <div class="swiper-slide"><img src="images/newd5custamkidsincarblack.jpg" alt="ステッカー3"></div>
+        <div class="swiper-slide"><img src="images/jb74customrockwhite2.jpg" alt="ステッカー4"></div>
+        <div class="swiper-slide"><img src="images/jb74customkidsincarblack.jpg" alt="ステッカー5"></div>
+        <div class="swiper-slide"><img src="images/jb23black.jpg" alt="ステッカー6"></div>
+        <div class="swiper-slide"><img src="images/d5customwhite2.jpg" alt="ステッカー7"></div>
+        <div class="swiper-slide"><img src="images/jimnyjb64gold.jpg" alt="ステッカー8"></div>
+        <div class="swiper-slide"><img src="images/jimnyjb74silver.jpg" alt="ステッカー9"></div>
+        <div class="swiper-slide"><img src="images/lclogoblack5.jpg" alt="ステッカー10"></div>
+      </div>
     </div>
-  </div>
-</section>
-
-  <section id="request-board">
-  <h2>ステッカーアイデア募集掲示板</h2>
-  <p style="text-align:center; margin-bottom: 20px;">
-    「こんなのがあったらいいな！」というステッカーのアイデアを募集しています。<br>
-    オーダーメイドとは別で、皆さんの声をもとに商品化を検討します。<br>
-    ※返信は行いませんが、人気のあるアイデアは優先的に採用します。
-  </p>
-
-  <div style="text-align:center; margin-bottom: 30px;">
-    <a href="https://forms.gle/TXCb4Ki9S6vQS5LZ8" target="_blank" style="background-color:#6b8e23; color:#fff; padding:10px 20px; border-radius:6px; text-decoration:none; font-weight:bold;">
-      アイデアを投稿する
-    </a>
-  </div>
-
-  <div style="background-color:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:800px; margin:auto;">
-    <h3 style="color:#a67c52;">最近の投稿アイデア</h3>
-    <ul style="list-style:none; padding-left:0;">
-      <li style="margin-bottom:15px;">・「インスタグラムアカウント名入りステッカー」</li>
-      <li style="margin-bottom:15px;">・「猫とランクルのデザイン」</li>
-      <li style="margin-bottom:15px;">・「JIMNY反転ロゴのシルバー、ゴールド」</li>
-      <li style="margin-bottom:15px;">・「オフロード走行イメージ」</li>
-    </ul>
-  </div>
-</section>
-
-  <section id="about">
-    <h2>当店について</h2>
-    <p style="text-align:center;">「みんステ」は車好きのためのカッティングステッカー専門店です。メルカリショップスで販売中。オーダーメイドも承ります。</p>
   </section>
 
+  <!-- アイデア募集掲示板 -->
+  <section id="request-board">
+    <h2>ステッカーアイデア募集掲示板</h2>
+    <p style="text-align:center; margin-bottom: 20px;">
+      「こんなのがあったらいいな！」というステッカーのアイデアを募集しています。<br>
+      オーダーメイドとは別で、皆さんの声をもとに商品化を検討します。<br>
+      ※返信は行いませんが、人気のあるアイデアは優先的に採用します。
+    </p>
+    <div style="text-align:center; margin-bottom: 30px;">
+      <a href="https://forms.gle/TXCb4Ki9S6vQS5LZ8" target="_blank" style="background-color:#6b8e23; color:#fff; padding:10px 20px; border-radius:6px; text-decoration:none; font-weight:bold;">
+        アイデアを投稿する
+      </a>
+    </div>
+    <div style="background-color:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:800px; margin:auto;">
+      <h3 style="color:#a67c52;">最近の投稿アイデア</h3>
+      <ul style="list-style:none; padding-left:0;">
+        <li style="margin-bottom:15px;">・「インスタグラムアカウント名入りステッカー」</li>
+        <li style="margin-bottom:15px;">・「猫とランクルのデザイン」</li>
+        <li style="margin-bottom:15px;">・「JIMNY反転ロゴのシルバー、ゴールド」</li>
+        <li style="margin-bottom:15px;">・「オフロード走行イメージ」</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 当店について -->
+  <section id="about">
+    <h2>当店について</h2>
+    <p style="text-align:center;">
+      「みんステ」は車好きのためのカッティングステッカー専門店です。<br>
+      メルカリショップスで販売中。オーダーメイドも承ります。
+    </p>
+  </section>
+
+  <!-- ステッカーカテゴリ一覧 -->
   <section id="gallery">
     <h2>ステッカーカテゴリ一覧</h2>
     <div class="category-grid">
@@ -269,15 +291,15 @@ footer {
     </div>
   </section>
 
-<section id="order">
-  <h2>オーダーメイドについて</h2>
-  <p style="text-align:center;">
-    世界にひとつだけのステッカーを作りませんか？<br>
-    以下のテンプレートをコピーして、InstagramのDMまたはGmailでご相談ください。
-  </p>
-
-  <div style="background-color:#fff; border:2px dashed #a67c52; border-radius:12px; padding:20px; margin:30px auto; max-width:800px; box-shadow:0 4px 10px rgba(0,0,0,0.05); font-size:0.95em; line-height:1.6; white-space:pre-wrap;">
-    <strong>📋 コピーしてお使いください：</strong><br><br>
+  <!-- オーダーメイド -->
+  <section id="order">
+    <h2>オーダーメイドについて</h2>
+    <p style="text-align:center;">
+      世界にひとつだけのステッカーを作りませんか？<br>
+      以下のテンプレートをコピーして、InstagramのDMまたはGmailでご相談ください。
+    </p>
+    <div style="background-color:#fff; border:2px dashed #a67c52; border-radius:12px; padding:20px; margin:30px auto; max-width:800px; box-shadow:0 4px 10px rgba(0,0,0,0.05); font-size:0.95em; line-height:1.6; white-space:pre-wrap;">
+      <strong>📋 コピーしてお使いください：</strong><br><br>
 【オーダーメイドステッカーの相談】
 
 ▼希望する内容  
@@ -292,16 +314,18 @@ footer {
 ▼その他ご要望  
 ・（例：耐水性が欲しい、複数枚ほしい、納期の希望など）  
 
-よろしくお願いいたします。
-  </div>
+    </div>
+    <p style="text-align:center; margin-top:20px;">
+      <a href="https://www.instagram.com/minsute_since2024/" target="_blank" style="color:#6b8e23; font-weight:bold;">Instagramで相談する</a><br>
+      <a href="mailto:minnano.sticker.shop@gmail.com?subject=オーダーメイドステッカーの相談&body=%E3%80%90%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%83%A1%E3%82%A4%E3%83%89%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC%E3%81%AE%E7%9B%B8%E8%AB%87%E3%80%91%0A%0A%E2%96%BC%E5%B8%8C%E6%9C%9B%E3%81%99%E3%82%8B%E5%86%85%E5%AE%B9%20%0A%E3%83%BB%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC%E3%81%AB%E5%85%A5%E3%82%8C%E3%81%9F%E3%81%84%E6%96%87%E5%AD%97%E3%82%84%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%EF%BC%9A%20%0A%E3%83%BB%E3%82%B5%E3%82%A4%E3%82%BA%EF%BC%88%E4%BE%8B%EF%BC%9A%E6%A8%AA20cm%20%C3%97%20%E7%B8%A65cm%EF%BC%89%EF%BC%9A%20%0A%E3%83%BB%E8%89%B2%EF%BC%88%E4%BE%8B%EF%BC%9A%E7%99%BD%E3%80%81%E9%BB%92%E3%80%81%E8%B5%A4%E3%81%AA%E3%81%A9%EF%BC%89%EF%BC%9A%20%0A%E3%83%BB%E8%B2%BC%E3%82%8A%E3%81%9F%E3%81%84%E5%A0%B4%E6%89%80%EF%BC%88%E4%BE%8B%EF%BC%9A%E3%83%AA%E3%82%A2%E3%82%AC%E3%83%A9%E3%82%B9%E3%80%81%E3%82%B5%E3%82%A4%E3%83%89%E3%83%89%E3%82%A2%E3%81%AA%E3%81%A9%EF%BC%89%EF%BC%9A%20%0A%0A%E2%96%BC%E5%8F%82%E8%80%83%E7%94%BB%E5%83%8F%EF%BC%88%E3%81%82%E3%82%8C%E3%81%B0%EF%BC%89%20%0A%E3%83%BB%E6%8F%90%E5%87%BA%E3%81%BE%E3%81%9F%E3%81%AFURL%EF%BC%9A%20%0A%0A%E2%96%BC%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%94%E8%A6%81%E6%9C%9B%20%0A%E3%83%BB%EF%BC%88%E4%BE%8B%EF%BC%9A%E8%80%90%E6%B0%B4%E6%80%A7%E3%81%8C%E6%AC%B2%E3%81%97%E3%81%84%E3%80%81%E8%A4%87%E6%95%B0%E6%9E%9A%E3%81%BB%E3%81%97%E3%81%84%E3%80%81%E7%B4%8D%E6%9C%9F%E3%81%AE%E5%B8%8C%E6%9C%9B%E3%81%AA%E3%81%A9%EF%BC%89%0A%0A%E3%82%88%E3%82%8D%E3%81%97%E3%81%8F%E3%81%8A%E9%A1%98%E3%81%84%E3%81%84%E3%81%9F%E3%81%97%E3%81%BE%E3%81%99%E3%80%82" 
+   style="color:#6b8e23; font-weight:bold;">
+   Gmailで相談する
+</a>
 
-  <p style="text-align:center; margin-top:20px;">
-    <a href="https://www.instagram.com/minsute_since2024/" target="_blank" style="color:#6b8e23; font-weight:bold;">Instagramで相談する</a><br>
-    <a href="mailto:minnano.sticker.shop@gmail.com" style="color:#6b8e23; font-weight:bold;">Gmailで相談する</a>
-  </p>
-</section>
+    </p>
+   </section> 
 
-
+      <!-- お問い合わせ -->
   <section id="contact">
     <h2>お問い合わせ</h2>
     <p style="text-align:center;">
@@ -312,32 +336,34 @@ footer {
     </p>
   </section>
 
+  <!-- フッター -->
   <footer>
     &copy; 2025 みんステ｜車好きのためのステッカー専門店
   </footer>
 
-
-<!-- Swiper JS（body末尾） -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-<script>
-  const swiper = new Swiper(".mySwiper", {
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    slidesPerView: 3,
-    spaceBetween: 20,
-    breakpoints: {
-      600: { slidesPerView: 2 },
-      400: { slidesPerView: 1 }
-    }
-  });
-</script>
+  <!-- Swiper JS（body末尾） -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      slidesPerView: 3,
+      spaceBetween: 20,
+      breakpoints: {
+        600: { slidesPerView: 2 },
+        400: { slidesPerView: 1 }
+      }
+    });
+  </script>
 
 </body>
+
+
 </html>
+
 
 
 
