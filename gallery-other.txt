@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>その他カテゴリ｜みんステ</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <img src="images/minste-logo-circle.png" alt="みんステロゴ">
+    <button class="menu-toggle">☰</button>
+    <nav class="nav-menu">
+      <a href="#about">当店について</a>
+      <a href="#gallery">ステッカー</a>
+      <a href="#order">オーダー</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <!-- HEROセクション -->
+  <div class="hero" style="background-image: url('images/other-hero.jpg');">
+    <div class="hero-text">その他カテゴリ</div>
+  </div>
+
+  <!-- コンテンツ -->
+  <section>
+    <h2>その他ステッカー一覧</h2>
+    <p style="text-align:center; margin-bottom:30px;">
+      ブランドやジャンルにとらわれない、みんステならではのユニークなステッカーを集めました。<br>
+      「こんなの欲しかった！」を形にしたアイデア系・遊び心系のラインナップです。
+    </p>
+
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="images/sticker-funny.png" alt="ユニーク系">
+        <a href="#">ユニーク系</a>
+      </div>
+      <div class="category-card">
+        <img src="images/sticker-slogan.png" alt="スローガン系">
+        <a href="#">スローガン系</a>
+      </div>
+      <div class="category-card">
+        <img src="images/sticker-symbol.png" alt="記号・アイコン系">
+        <a href="#">記号・アイコン系</a>
+      </div>
+      <div class="category-card">
+        <img src="images/sticker-request.png" alt="リクエスト対応">
+        <a href="#">リクエスト対応</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    &copy; 2025 みんステ｜ステッカー専門店 All rights reserved.
+  </footer>
+
+  <!-- スクリプト -->
+  <script>
+    const toggleButton = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    toggleButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('active')) {
+        const isClickInside = navMenu.contains(e.target) || toggleButton.contains(e.target);
+        if (!isClickInside) {
+          navMenu.classList.remove('active');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
