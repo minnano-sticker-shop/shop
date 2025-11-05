@@ -8,6 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
+
+<!-- Swiper CSS（head内） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
   /* =========================
   ベース設定
 ========================= */
@@ -199,20 +203,20 @@ footer {
 </div>
 
 <!-- スライダーセクション -->
-  <section id="sticker-slider">
+<section id="sticker-slider">
   <h2 style="text-align:center; color:#6b8e23;">ステッカーサンプルスライド</h2>
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <img src="images/lc70black.jpg" alt="ステッカー1">
-      <img src="images/lc150white.jpg" alt="ステッカー2">
-      <img src="images/newd5custamkidsincarblack.jpg" alt="ステッカー3">
-      <img src="images/jb74customrockwhite2.jpg" alt="ステッカー4">
-      <img src="images/jb74customkidsincarblack.jpg" alt="ステッカー5">
-      <img src="images/jb23black.jpg" alt="ステッカー6">
-      <img src="images/d5customwhite2.jpg" alt="ステッカー7">
-      <img src="images/jimnyjb64gold.jpg" alt="ステッカー8">
-      <img src="images/jimnyjb74silver.jpg" alt="ステッカー9">
-      <img src="images/lclogoblack5.jpg" alt="ステッカー10">
+      <div class="swiper-slide"><img src="images/lc70black.jpg" alt="ステッカー1"></div>
+      <div class="swiper-slide"><img src="images/lc150white.jpg" alt="ステッカー2"></div>
+      <div class="swiper-slide"><img src="images/newd5custamkidsincarblack.jpg" alt="ステッカー3"></div>
+      <div class="swiper-slide"><img src="images/jb74customrockwhite2.jpg" alt="ステッカー4"></div>
+      <div class="swiper-slide"><img src="images/jb74customkidsincarblack.jpg" alt="ステッカー5"></div>
+      <div class="swiper-slide"><img src="images/jb23black.jpg" alt="ステッカー6"></div>
+      <div class="swiper-slide"><img src="images/d5customwhite2.jpg" alt="ステッカー7"></div>
+      <div class="swiper-slide"><img src="images/jimnyjb64gold.jpg" alt="ステッカー8"></div>
+      <div class="swiper-slide"><img src="images/jimnyjb74silver.jpg" alt="ステッカー9"></div>
+      <div class="swiper-slide"><img src="images/lclogoblack5.jpg" alt="ステッカー10"></div>
     </div>
   </div>
 </section>
@@ -312,8 +316,8 @@ footer {
     &copy; 2025 みんステ｜車好きのためのステッカー専門店
   </footer>
 
-  <!-- Swiper CDN読み込み（head内またはbody末尾） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<!-- Swiper JS（body末尾） -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <script>
@@ -334,6 +338,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
