@@ -1,216 +1,468 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>みんステ｜車好きのためのオリジナルカッティングステッカー専門店</title>
-  <meta name="description" content="車好きのためのオリジナルカッティングステッカー専門店「みんステ」。トヨタ、スズキなどの車種別からアウトドア、キッズインカーまで。メルカリShopで販売中！オーダーメイドも受付。">
-  <meta name="keywords" content="カッティングステッカー, 車 ステッカー, オーダーメイド, キャンプ, キッズインカー, みんステ, メルカリ">
-  <link rel="canonical" href="https://your-domain.com/"> <meta property="og:type" content="website">
-  <meta property="og:title" content="みんステ｜車好きのためのステッカー専門店">
-  <meta property="og:description" content="愛車に個性を。高品質なカッティングステッカーをメルカリでお手軽に。">
-  <meta property="og:image" content="https://your-domain.com/images/ogp-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
+  <title>みんステ｜車好きのためのステッカー専門店</title>
+  <meta name="description" content="オリジナルカッティングステッカー専門店。メルカリショップスで販売中。オーダーメイドも対応！">
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "みんステ",
-    "description": "オリジナルカッティングステッカー専門店",
-    "image": "https://your-domain.com/images/minste-logo-circle.png",
-    "url": "https://your-domain.com/",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "JP"
-    },
-    "offers": {
-      "@type": "Offer",
-      "itemOffered": "Custom Stickers"
-    }
-  }
-  </script>
-
+  <!-- フォント読み込み -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS（正しい位置） -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
   <style>
-    /* ベース設定 */
-    body { margin: 0; font-family: 'Noto Sans JP', sans-serif; background-color: #f5f3ef; color: #4b4b4b; line-height: 1.6; }
-    
-    /* ① ヘッダー最適化 */
-    header {
-      background-color: #3e3e3e;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      height: 60px;
-    }
-    .logo-container picture img {
-      height: 50px; /* PCサイズ */
-      width: auto;
-      display: block;
-    }
-    /* スマホ時は縦長ロゴを想定 */
-    @media (max-width: 600px) {
-      .logo-container picture img { height: 60px; } 
-    }
+/* =========================
+  ベース設定
+========================= */
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #f5f3ef;
+  color: #4b4b4b;
+}
 
-    .menu-toggle { font-size: 1.8em; background: none; border: none; color: #f5f3ef; cursor: pointer; display: none; }
-    .nav-menu { display: flex; gap: 15px; }
-    .nav-menu a { color: #f5f3ef; text-decoration: none; font-weight: bold; font-size: 0.95em; }
+/* =========================
+  ヘッダー
+========================= */
+header {
+  background-color: #3e3e3e;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
-    /* HERO */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/ad8.jpg') center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-text {
-      color: #f5f3ef;
-      font-size: clamp(1.2rem, 5vw, 2.2rem);
-      font-weight: bold;
-      text-align: center;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    }
+header img {
+  height: 50px;
+}
 
-    /* ② スライダー5段設定（主要5カテゴリ） */
-    .sticker-section { padding: 40px 20px; max-width: 1200px; margin: auto; }
-    .category-label { 
-      display: inline-block; 
-      background: #6b8e23; 
-      color: white; 
-      padding: 2px 12px; 
-      border-radius: 4px; 
-      font-size: 0.8em; 
-      margin-bottom: 10px;
-    }
-    .swiper { width: 100%; margin-bottom: 40px; border-radius: 12px; }
-    .swiper-slide img { width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover; border-radius: 8px; }
+/* ハンバーガーアイコン */
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  background: none;
+  border: none;
+  color: #f5f3ef;
+  cursor: pointer;
+}
 
-    /* カテゴリーグリッド */
-    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
-    .category-card { border-radius: 10px; text-align: center; padding: 15px; font-weight: bold; transition: 0.3s; }
-    .category-card:hover { transform: translateY(-5px); opacity: 0.9; }
-    .category-card a { text-decoration: none; color: #fff; }
+/* ナビゲーションメニュー（PC表示） */
+.nav-menu {
+  display: flex;
+  gap: 15px;
+}
 
-    /* 各種ブランドカラー（既存のものは維持し、JDMなどの文字色を調整） */
-    .toyota { background-color: #eb0a1e; } .suzuki { background-color: #e10000; }
-    .mitsubishi { background-color: #e60012; } .outdoor { background-color: #4caf50; }
-    .kids { background-color: #ffb6c1; color: #000; }
+.nav-menu a {
+  color: #f5f3ef;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95em;
+}
 
-    /* レスポンシブ */
-    @media (max-width: 600px) {
-      .menu-toggle { display: block; }
-      .nav-menu {
-        position: absolute; top: 60px; right: 20px; background-color: #3e3e3e;
-        flex-direction: column; padding: 20px; border-radius: 8px; display: none;
-      }
-      .nav-menu.active { display: flex; }
-    }
+/* =========================
+  HEROセクション
+========================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-image: url('images/ad8.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #f5f3ef;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* =========================
+  Swiperスライダー
+========================= */
+.swiper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: auto;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* =========================
+  セクション共通
+========================= */
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8em;
+  color: #6b8e23;
+}
+
+/* =========================
+  カテゴリーカード
+========================= */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.category-card {
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: transform 0.3s;
+}
+
+.category-card a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+/* ブランド・テーマカラー */
+.toyota      { background-color: #eb0a1e; }
+.honda       { background-color: #da251d; }
+.nissan      { background-color: #1e1e1e; }
+.mazda       { background-color: #1d1d1d; }
+.subaru      { background-color: #0033a0; }
+.mitsubishi  { background-color: #e60012; }
+.suzuki      { background-color: #e10000; }
+.daihatsu    { background-color: #c8102e; }
+.jdm         { background-color: #fdd835; color: #000; }
+.euro        { background-color: #005baa; }
+.outdoor     { background-color: #4caf50; }
+.custom      { background-color: #6b8e23; }
+.kei         { background-color: #ff9800; }
+.hiace       { background-color: #607d8b; }
+.suv         { background-color: #795548; }
+.classic     { background-color: #9e9e9e; }
+.kids        { background-color: #ffb6c1; color: #000; }
+.pet         { background-color: #ffcc80; color: #000; }
+.family      { background-color: #8bc34a; }
+.name        { background-color: #3f51b5; }
+.text        { background-color: #009688; }
+.fire        { background-color: #f44336; }
+.cute        { background-color: #e91e63; }
+.offroad     { background-color: #4e342e; }
+.usdm        { background-color: #2196f3; }
+.anime       { background-color: #9c27b0; }
+.other       { background-color: #616161; }
+
+/* =========================
+  フッター
+========================= */
+footer {
+  background-color: #3e3e3e;
+  color: #f5f3ef;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+
+/* =========================
+  レスポンシブ対応（スマホ用）
+========================= */
+@media (max-width: 600px) {
+  .hero {
+    height: 220px;
+  }
+
+  .hero-text {
+    font-size: 1.4em;
+  }
+
+  .swiper-slide img {
+    aspect-ratio: 3 / 4;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #3e3e3e;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   </style>
 </head>
 
-<body>
-  <header>
-    <div class="logo-container">
-      <a href="/">
-        <picture>
-          <source media="(max-width: 600px)" srcset="images/logo-sp.png">
-          <img src="images/minste-logo-circle.png" alt="みんステ｜ステッカー専門店ロゴ">
-        </picture>
+  <body>
+
+  <!-- ヘッダー -->
+<header>
+  <img src="images/minste-logo-circle.png" alt="みんステロゴ" class="logo">
+
+  <!-- ハンバーガーアイコン -->
+  <button class="menu-toggle" aria-label="メニューを開く">
+    ☰
+  </button>
+
+  <!-- ナビゲーションメニュー -->
+  <nav class="nav-menu">
+    <a href="#about">当店について</a>
+    <a href="#gallery">ステッカー</a>
+    <a href="#order">オーダー</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+</header>
+
+
+  <!-- HEROセクション -->
+  <div class="hero">
+    <div class="hero-text">あなたの愛車に、個性を。</div>
+  </div>
+
+  <!-- Swiperスライダー -->
+  <section id="sticker-slider">
+    <h2>ステッカーサンプル</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/lc70black.jpg" alt="ステッカー1"></div>
+        <div class="swiper-slide"><img src="images/lc150white.jpg" alt="ステッカー2"></div>
+        <div class="swiper-slide"><img src="images/newd5custamkidsincarblack.jpg" alt="ステッカー3"></div>
+        <div class="swiper-slide"><img src="images/jb74customrockwhite2.jpg" alt="ステッカー4"></div>
+        <div class="swiper-slide"><img src="images/jb74customkidsincarblack.jpg" alt="ステッカー5"></div>
+        <div class="swiper-slide"><img src="images/jb23black.jpg" alt="ステッカー6"></div>
+        <div class="swiper-slide"><img src="images/d5customwhite2.jpg" alt="ステッカー7"></div>
+        <div class="swiper-slide"><img src="images/jimnyjb64gold.jpg" alt="ステッカー8"></div>
+        <div class="swiper-slide"><img src="images/jimnyjb74silver.jpg" alt="ステッカー9"></div>
+        <div class="swiper-slide"><img src="images/lclogoblack5.jpg" alt="ステッカー10"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- アイデア募集掲示板 -->
+  <section id="request-board">
+    <h2>ステッカーアイデア募集掲示板</h2>
+    <p style="text-align:center; margin-bottom: 20px;">
+      「こんなのがあったらいいな！」というステッカーのアイデアを募集しています。<br><br>
+      オーダーメイドとは別で、皆さんの声をもとに商品化を検討します。<br><br>
+      ※返信は行いませんが、人気のあるアイデアは優先的に採用します。
+    </p>
+    <div style="text-align:center; margin-bottom: 30px;">
+      <a href="https://forms.gle/TXCb4Ki9S6vQS5LZ8" target="_blank" style="background-color:#6b8e23; color:#fff; padding:10px 20px; border-radius:6px; text-decoration:none; font-weight:bold;">
+        アイデアを投稿する
       </a>
     </div>
-    <button class="menu-toggle" aria-label="メニューを開く">☰</button>
-    <nav class="nav-menu">
-      <a href="#about">当店について</a>
-      <a href="#gallery">商品一覧</a>
-      <a href="#order">オーダーメイド</a>
-      <a href="#contact">お問い合わせ</a>
-    </nav>
-  </header>
+    <div style="background-color:#fff; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:800px; margin:auto;">
+      <h3 style="color:#a67c52;">最近の投稿アイデア</h3>
+      <ul style="list-style:none; padding-left:0;">
+        <li style="margin-bottom:15px;">・「インスタグラムアカウント名入りステッカー」</li>
+        <li style="margin-bottom:15px;">・「猫とランクルのデザイン」</li>
+        <li style="margin-bottom:15px;">・「JIMNY反転ロゴのシルバー、ゴールド」</li>
+        <li style="margin-bottom:15px;">・「オフロード走行イメージ」</li>
+      </ul>
+    </div>
+  </section>
 
-  <main>
-    <section class="hero">
-      <h1 class="hero-text">あなたの愛車に、世界に一つの個性を。</h1>
-    </section>
+  <!-- 当店について -->
+  <section id="about">
+    <h2>当店について</h2>
+    <p style="text-align:center;">
+      「みんステ」は車好きのためのカッティングステッカー専門店です。<br><br>
+      メルカリショップスで販売中。<br><br>
+      オーダーメイドも承ります。
+    </p>
+  </section>
 
-    <section class="sticker-section" id="gallery">
-      <h2>注目のステッカー</h2>
+  <!-- ステッカーカテゴリ一覧 -->
+<section id="gallery">
+  <h2>ステッカーカテゴリ一覧</h2>
+  <div class="category-grid">
+    <div class="category-card toyota"><a href="gallery-toyota.html">トヨタ系</a></div>
+    <div class="category-card honda"><a href="gallery-honda.html">ホンダ系</a></div>
+    <div class="category-card nissan"><a href="gallery-nissan.html">日産系</a></div>
+    <div class="category-card mazda"><a href="gallery-mazda.html">マツダ系</a></div>
+    <div class="category-card subaru"><a href="gallery-subaru.html">スバル系</a></div>
+    <div class="category-card mitsubishi"><a href="gallery-mitsubishi.html">三菱系</a></div>
+    <div class="category-card suzuki"><a href="gallery-suzuki.html">スズキ系</a></div>
+    <div class="category-card daihatsu"><a href="gallery-daihatsu.html">ダイハツ系</a></div>
+    <div class="category-card jdm"><a href="gallery-jdm.html">JDMスタイル</a></div>
+    <div class="category-card euro"><a href="gallery-euro.html">欧州車</a></div>
+    <div class="category-card outdoor"><a href="gallery-outdoor.html">キャンプ・アウトドア</a></div>
+    <div class="category-card custom"><a href="gallery-custom.html">カスタム文字</a></div>
+    <div class="category-card kei"><a href="gallery-kei.html">軽トラ系</a></div>
+    <div class="category-card hiace"><a href="gallery-hiace.html">ハイエース系</a></div>
+    <div class="category-card suv"><a href="gallery-suv.html">SUV・クロカン系</a></div>
+    <div class="category-card classic"><a href="gallery-classic.html">旧車・ネオクラ系</a></div>
+    <div class="category-card kids"><a href="gallery-kids.html">キッズ・ベビー系</a></div>
+    <div class="category-card pet"><a href="gallery-pet.html">ペット系</a></div>
+    <div class="category-card family"><a href="gallery-family.html">ファミリー系</a></div>
+    <div class="category-card name"><a href="gallery-name.html">名前ステッカー</a></div>
+    <div class="category-card text"><a href="gallery-text.html">文字ステッカー</a></div>
+    <div class="category-card fire"><a href="gallery-fire.html">ファイヤー・稲妻系</a></div>
+    <div class="category-card cute"><a href="gallery-cute.html">星・ハート系</a></div>
+    <div class="category-card offroad"><a href="gallery-offroad.html">オフロード系</a></div>
+    <div class="category-card usdm"><a href="gallery-usdm.html">USDM・ユーロ系</a></div>
+    <div class="category-card anime"><a href="gallery-anime.html">アニメ・ゲーム風</a></div>
+    <div class="category-card other"><a href="gallery-other.html">その他</a></div>
+  </div>
+</section>
 
-      <div class="category-label">TOYOTA</div>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/lc70black.jpg" alt="ランドクルーザー70 ステッカー"></div>
-          <div class="swiper-slide"><img src="images/lc150white.jpg" alt="プラド ステッカー"></div>
-          <div class="swiper-slide"><img src="images/lclogoblack5.jpg" alt="ランクル ロゴステッカー"></div>
-        </div>
-      </div>
 
-      <div class="category-label">SUZUKI</div>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/jimnyjb64gold.jpg" alt="ジムニー JB64 ステッカー"></div>
-          <div class="swiper-slide"><img src="images/jimnyjb74silver.jpg" alt="ジムニーシエラ ステッカー"></div>
-          <div class="swiper-slide"><img src="images/jb23black.jpg" alt="ジムニー JB23 ステッカー"></div>
-        </div>
-      </div>
+  <!-- オーダーメイド -->
+  <section id="order">
+    <h2>オーダーメイドについて</h2>
+    <p style="text-align:center;">
+      世界にひとつだけのステッカーを作りませんか？<br>
+      InstagramのDMの方は … 以下のテンプレートをコピーしてご相談ください。<br><br>
+      メールの方は … コピー枠下の【メールで相談する】からご相談ください。件名と本文が自動で反映されます。
+    </p>
+    <div style="background-color:#fff; border:2px dashed #a67c52; border-radius:12px; padding:20px; margin:30px auto; max-width:800px; box-shadow:0 4px 10px rgba(0,0,0,0.05); font-size:0.95em; line-height:1.6; white-space:pre-wrap;">
+      <strong>📋 コピーしてお使いください：</strong><br><br>
+【オーダーメイドステッカーの相談】
 
-      <div class="category-label">MITSUBISHI</div>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/newd5custamkidsincarblack.jpg" alt="デリカD5 カスタム"></div>
-          <div class="swiper-slide"><img src="images/d5customwhite2.jpg" alt="デリカ ステッカー"></div>
-          </div>
-      </div>
+▼希望する内容  
+・ステッカーに入れたい文字やデザイン：  
+・サイズ（例：横20cm × 縦5cm）：  
+・色（例：白、黒、赤など）：  
+・貼りたい場所（例：リアガラス、サイドドアなど）：  
 
-      <div class="category-label">OUTDOOR / CAMP</div>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/jb74customrockwhite2.jpg" alt="オフロードスタイル"></div>
-          </div>
-      </div>
+▼参考画像（あれば）  
+・添付またはURL：  
 
-      <div class="category-label">KIDS IN CAR</div>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/jb74customkidsincarblack.jpg" alt="キッズインカー ジムニー"></div>
-          </div>
-      </div>
-    </section>
+▼その他ご要望  
+・（例：複数枚ほしい、納期の希望など）  
 
-    </main>
+    </div>
+    <p style="text-align:center; margin-top:20px;">
+      <a href="https://www.instagram.com/minsute_since2024/" target="_blank" style="color:#6b8e23; font-weight:bold;">Instagramで相談する</a><br>
+      <a href="mailto:minnano.sticker.shop@gmail.com?subject=オーダーメイドステッカーの相談&body=%E3%80%90%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC%E3%83%A1%E3%82%A4%E3%83%89%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC%E3%81%AE%E7%9B%B8%E8%AB%87%E3%80%91%0A%0A%E2%96%BC%E5%B8%8C%E6%9C%9B%E3%81%99%E3%82%8B%E5%86%85%E5%AE%B9%20%0A%E3%83%BB%E3%82%B9%E3%83%86%E3%83%83%E3%82%AB%E3%83%BC%E3%81%AB%E5%85%A5%E3%82%8C%E3%81%9F%E3%81%84%E6%96%87%E5%AD%97%E3%82%84%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%EF%BC%9A%20%0A%E3%83%BB%E3%82%B5%E3%82%A4%E3%82%BA%EF%BC%88%E4%BE%8B%EF%BC%9A%E6%A8%AA20cm%20%C3%97%20%E7%B8%A65cm%EF%BC%89%EF%BC%9A%20%0A%E3%83%BB%E8%89%B2%EF%BC%88%E4%BE%8B%EF%BC%9A%E7%99%BD%E3%80%81%E9%BB%92%E3%80%81%E8%B5%A4%E3%81%AA%E3%81%A9%EF%BC%89%EF%BC%9A%20%0A%E3%83%BB%E8%B2%BC%E3%82%8A%E3%81%9F%E3%81%84%E5%A0%B4%E6%89%80%EF%BC%88%E4%BE%8B%EF%BC%9A%E3%83%AA%E3%82%A2%E3%82%AC%E3%83%A9%E3%82%B9%E3%80%81%E3%82%B5%E3%82%A4%E3%83%89%E3%83%89%E3%82%A2%E3%81%AA%E3%81%A9%EF%BC%89%EF%BC%9A%20%0A%0A%E2%96%BC%E5%8F%82%E8%80%83%E7%94%BB%E5%83%8F%EF%BC%88%E3%81%82%E3%82%8C%E3%81%B0%EF%BC%89%20%0A%E3%83%BB%E6%8F%90%E5%87%BA%E3%81%BE%E3%81%9F%E3%81%AFURL%EF%BC%9A%20%0A%0A%E2%96%BC%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%94%E8%A6%81%E6%9C%9B%20%0A%E3%83%BB%EF%BC%88%E4%BE%8B%EF%BC%9A%E8%80%90%E6%B0%B4%E6%80%A7%E3%81%8C%E6%AC%B2%E3%81%97%E3%81%84%E3%80%81%E8%A4%87%E6%95%B0%E6%9E%9A%E3%81%BB%E3%81%97%E3%81%84%E3%80%81%E7%B4%8D%E6%9C%9F%E3%81%AE%E5%B8%8C%E6%9C%9B%E3%81%AA%E3%81%A9%EF%BC%89%0A%0A%E3%82%88%E3%82%8D%E3%81%97%E3%81%8F%E3%81%8A%E9%A1%98%E3%81%84%E3%81%84%E3%81%9F%E3%81%97%E3%81%BE%E3%81%99%E3%80%82" 
+   style="color:#6b8e23; font-weight:bold;">
+   メールで相談する
+</a>
 
+    </p>
+   </section> 
+
+      <!-- お問い合わせ -->
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <p style="text-align:center;">
+      ご質問はInstagramのDMまたはメルカリショップのコメント欄からどうぞ。
+    </p>
+    <p style="text-align:center; margin-top: 20px;">
+      <a href="https://jp.mercari.com/shops/profile/G2QZQf9cfUjtUNa2jbti3F" target="_blank" style="color:#6b8e23; font-weight:bold;">メルカリショップを見る</a>
+    </p>
+  </section>
+
+  <!-- フッター -->
   <footer>
-    <p>&copy; 2025 みんステ｜車好きのためのステッカー専門店</p>
+    &copy; 2025 みんステ｜車好きのためのステッカー専門店
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    const swiperOptions = {
-      loop: true,
-      autoplay: { delay: 3000, disableOnInteraction: false },
-      slidesPerView: 2,
-      spaceBetween: 15,
-      breakpoints: {
-        600: { slidesPerView: 3 },
-        1000: { slidesPerView: 4 }
-      }
-    };
-    // 全てのスライダーを一括初期化
-    const swipers = new Swiper(".mySwiper", swiperOptions);
+  <!-- Swiper JS（body末尾） -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  // Swiperスライダー初期化
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 3,
+    spaceBetween: 20,
+    breakpoints: {
+      600: { slidesPerView: 2 },
+      400: { slidesPerView: 1 }
+    }
+  });
 
-    const toggleButton = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    toggleButton.addEventListener('click', () => navMenu.classList.toggle('active'));
-  </script>
+  // ハンバーガーメニュー開閉
+   const toggleButton = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+
+  // メニュー開閉
+  toggleButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // ボタン自体のクリックは除外
+    navMenu.classList.toggle('active');
+  });
+
+  // 外部クリックでメニューを閉じる
+  document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active')) {
+      const isClickInside = navMenu.contains(e.target) || toggleButton.contains(e.target);
+      if (!isClickInside) {
+        navMenu.classList.remove('active');
+      }
+    }
+  });
+</script>
+
 </body>
+
 </html>
