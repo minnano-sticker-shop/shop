@@ -48,33 +48,46 @@
     .nav-menu { display: flex; gap: 15px; }
     .nav-menu a { color: #f5f3ef; text-decoration: none; font-weight: bold; font-size: 0.95em; }
 
-
-/* =========================
-   HEROスライダー（完全安定版）
-========================= */
-/* HEROスライダー：画像と同じ比率にする */
-.hero-slider {
+/* HERO全体 */
+.hero {
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 16; /* ← これが最重要 */
+  height: 100vh; /* 画面いっぱい */
   overflow: hidden;
   background: #000;
 }
 
-/* 画像を完全表示（切れない） */
-.hero-img {
+/* スライド共通 */
+.hero-slide {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* ← 切れない */
+  background-size: contain; /* ← 切れない */
+  background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 1.5s ease;
+  animation: fade 33s infinite;
 }
 
-/* 表示中の画像 */
-.hero-img.active {
-  opacity: 1;
+/* 11枚の画像設定 */
+.hero-slide:nth-child(1)  { background-image: url('images/ad1.webp');  animation-delay: 0s; }
+.hero-slide:nth-child(2)  { background-image: url('images/ad2.webp');  animation-delay: 3s; }
+.hero-slide:nth-child(3)  { background-image: url('images/ad3.webp');  animation-delay: 6s; }
+.hero-slide:nth-child(4)  { background-image: url('images/ad4.webp');  animation-delay: 9s; }
+.hero-slide:nth-child(5)  { background-image: url('images/ad5.webp');  animation-delay: 12s; }
+.hero-slide:nth-child(6)  { background-image: url('images/ad6.webp');  animation-delay: 15s; }
+.hero-slide:nth-child(7)  { background-image: url('images/ad7.webp');  animation-delay: 18s; }
+.hero-slide:nth-child(8)  { background-image: url('images/ad8.webp');  animation-delay: 21s; }
+.hero-slide:nth-child(9)  { background-image: url('images/ad9.webp');  animation-delay: 24s; }
+.hero-slide:nth-child(10) { background-image: url('images/ad10.webp'); animation-delay: 27s; }
+.hero-slide:nth-child(11) { background-image: url('images/ad11.webp'); animation-delay: 30s; }
+
+/* フェードアニメーション */
+@keyframes fade {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  25%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 /* テキスト */
@@ -87,7 +100,6 @@
   font-size: clamp(1.4rem, 4vw, 2.4rem);
   font-weight: bold;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
-  z-index: 10;
   padding: 8px 20px;
   background: rgba(0,0,0,0.35);
   border-radius: 8px;
@@ -172,18 +184,18 @@
   </header>
 
   <main>
-<section class="hero-slider">
-  <img src="images/ad1.webp" class="hero-img">
-  <img src="images/ad2.webp" class="hero-img">
-  <img src="images/ad3.webp" class="hero-img">
-  <img src="images/ad4.webp" class="hero-img">
-  <img src="images/ad5.webp" class="hero-img">
-  <img src="images/ad6.webp" class="hero-img">
-  <img src="images/ad7.webp" class="hero-img">
-  <img src="images/ad8.webp" class="hero-img">
-  <img src="images/ad9.webp" class="hero-img">
-  <img src="images/ad10.webp" class="hero-img">
-  <img src="images/ad11.webp" class="hero-img">
+<section class="hero">
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
 
   <h1 class="hero-text">あなたの愛車に、個性を。</h1>
 </section>
