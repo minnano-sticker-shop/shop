@@ -52,23 +52,21 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* 画面いっぱい */
+  aspect-ratio: 9 / 16; /* ← これが最重要 */
   overflow: hidden;
   background: #000;
 }
 
-/* スライド共通 */
 .hero-slide {
   position: absolute;
   inset: 0;
-  background-size: contain; /* ← 切れない */
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
   animation: fade 33s infinite;
 }
 
-/* 11枚の画像設定 */
 .hero-slide:nth-child(1)  { background-image: url('images/ad1.webp');  animation-delay: 0s; }
 .hero-slide:nth-child(2)  { background-image: url('images/ad2.webp');  animation-delay: 3s; }
 .hero-slide:nth-child(3)  { background-image: url('images/ad3.webp');  animation-delay: 6s; }
@@ -81,7 +79,6 @@
 .hero-slide:nth-child(10) { background-image: url('images/ad10.webp'); animation-delay: 27s; }
 .hero-slide:nth-child(11) { background-image: url('images/ad11.webp'); animation-delay: 30s; }
 
-/* フェードアニメーション */
 @keyframes fade {
   0%   { opacity: 0; }
   5%   { opacity: 1; }
@@ -90,7 +87,6 @@
   100% { opacity: 0; }
 }
 
-/* テキスト */
 .hero-text {
   position: absolute;
   bottom: 20px;
