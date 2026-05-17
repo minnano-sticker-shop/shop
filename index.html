@@ -48,14 +48,16 @@
     .nav-menu { display: flex; gap: 15px; }
     .nav-menu a { color: #f5f3ef; text-decoration: none; font-weight: bold; font-size: 0.95em; }
 
-/* HERO全体 */
+/* HEROを縦長にする（画像と同じ比率） */
 .hero {
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 16; /* ← これが最重要 */
+  aspect-ratio: 9 / 16;
   overflow: hidden;
   background: #000;
+  padding: 0 !important; /* ← これが最重要 */
 }
+
 
 .hero-slide {
   position: absolute;
@@ -146,7 +148,6 @@
 
     /* レスポンシブ（スマホ用） */
     @media (max-width: 600px) {
-      .hero { height: 250px; }
       .menu-toggle { display: block; }
       .nav-menu {
         position: absolute; top: 60px; right: 20px; background-color: #3e3e3e;
